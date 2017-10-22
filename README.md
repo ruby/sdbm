@@ -1,8 +1,8 @@
-# Sdbm
+# SDBM
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/sdbm`. To experiment with that code, run `bin/console` for an interactive prompt.
+SDBM provides a simple file-based key-value store, which can only store  String keys and values.
 
-TODO: Delete this and the text above, and describe your gem
+Note that Ruby comes with the source code for SDBM, while the DBM and GDBM  standard libraries rely on external libraries and headers.
 
 ## Installation
 
@@ -22,7 +22,50 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Insert values:
+
+```
+require 'sdbm'
+
+SDBM.open 'my_database' do |db|
+  db['apple'] = 'fruit'
+  db['pear'] = 'fruit'
+  db['carrot'] = 'vegetable'
+  db['tomato'] = 'vegetable'
+end
+```
+
+### Bulk update:
+
+```
+require 'sdbm'
+
+SDBM.open 'my_database' do |db|
+  db.update('peach' => 'fruit', 'tomato' => 'fruit')
+end
+```
+
+### Retrieve values:
+
+```
+require 'sdbm'
+
+SDBM.open 'my_database' do |db|
+  db.each do |key, value|
+ puts "Key: #{key}, Value: #{value}"
+  end
+end
+```
+
+### Outputs:
+
+```
+Key: apple, Value: fruit
+Key: pear, Value: fruit
+Key: carrot, Value: vegetable
+Key: peach, Value: fruit
+Key: tomato, Value: fruit
+```
 
 ## Development
 
@@ -32,7 +75,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/hsbt/sdbm.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ruby/sdbm.
 
 
 ## License
