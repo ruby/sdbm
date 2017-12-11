@@ -1,5 +1,7 @@
 # SDBM
 
+[![Build Status](https://travis-ci.org/ruby/sdbm.svg?branch=enable-travis)](https://travis-ci.org/ruby/sdbm)
+
 SDBM provides a simple file-based key-value store, which can only store  String keys and values.
 
 Note that Ruby comes with the source code for SDBM, while the DBM and GDBM  standard libraries rely on external libraries and headers.
