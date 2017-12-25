@@ -26,7 +26,7 @@ Or install it yourself as:
 
 ### Insert values:
 
-```
+```ruby
 require 'sdbm'
 
 SDBM.open 'my_database' do |db|
@@ -39,7 +39,7 @@ end
 
 ### Bulk update:
 
-```
+```ruby
 require 'sdbm'
 
 SDBM.open 'my_database' do |db|
@@ -49,7 +49,7 @@ end
 
 ### Retrieve values:
 
-```
+```ruby
 require 'sdbm'
 
 SDBM.open 'my_database' do |db|
@@ -61,7 +61,7 @@ end
 
 ### Outputs:
 
-```
+```ruby
 Key: apple, Value: fruit
 Key: pear, Value: fruit
 Key: carrot, Value: vegetable
