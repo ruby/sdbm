@@ -51,7 +51,8 @@
 #define debug(x)
 #endif
 
-#ifdef BIG_E
+#if defined(BIG_E) || defined(WORDS_BIGENDIAN) || defined(__BIG_ENDIAN__) || \
+    (defined(__BYTE_ORDER__) && __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__)
 #define GET_SHORT(p, i)	(((unsigned)((unsigned char *)(p))[(i)*2] << 8) + (((unsigned char *)(p))[(i)*2 + 1]))
 #define PUT_SHORT(p, i, s) (((unsigned char *)(p))[(i)*2] = (unsigned char)((s) >> 8), ((unsigned char *)(p))[(i)*2 + 1] = (unsigned char)(s))
 #else
