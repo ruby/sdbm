@@ -15,7 +15,4 @@ Gem::Specification.new do |s|
   s.email = ["matz@ruby-lang.org"]
   s.homepage = "https://github.com/ruby/sdbm"
   s.license = "BSD-2-Clause"
-
-  s.add_development_dependency "test-unit"
-  s.add_development_dependency "rake-compiler"
 end
