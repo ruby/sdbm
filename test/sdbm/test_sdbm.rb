@@ -540,5 +540,15 @@ class TestSDBM < Test::Unit::TestCase
     end
     assert_raise(ArgumentError) { @sdbm.update(obj) }
   end
-end if defined? SDBM
 
+  def test_pairmax
+    assert_operator SDBM::PAIRMAX, :>, 1000
+    key = "a" * 500
+    data = "z" * (SDBM::PAIRMAX - 500)
+    @sdbm[key] = data
+    @sdbm.close
+    @sdbm = SDBM.new(@path)
+    assert_equal(data, @sdbm[key])
+    assert_raise(SDBMError) { @sdbm[key] = data + "Z" }
+  end
+end if defined? SDBM

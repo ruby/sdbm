@@ -1025,6 +1025,9 @@ Init_sdbm(void)
     rb_define_alloc_func(rb_cDBM, fsdbm_alloc);
     rb_define_singleton_method(rb_cDBM, "open", fsdbm_s_open, -1);
 
+    /* Maximum size of key + value */
+    rb_define_const(rb_cDBM, "PAIRMAX", INT2NUM(PAIRMAX));
+
     rb_define_method(rb_cDBM, "initialize", fsdbm_initialize, -1);
     rb_define_method(rb_cDBM, "close", fsdbm_close, 0);
     rb_define_method(rb_cDBM, "closed?", fsdbm_closed, 0);
