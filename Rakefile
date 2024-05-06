@@ -10,4 +10,5 @@ end
 require 'rake/extensiontask'
 Rake::ExtensionTask.new("sdbm")
 
+task :test => :compile
 task :default => [:compile, :test]
